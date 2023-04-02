@@ -2,7 +2,7 @@
 
 This addon is designed to sort the order of cards displayed during review sessions.
 - Possibly useful when you want to study in a specific sequence.
-- Available with V2 Scheduler only (Nothing will happen with V3 Scheduler)
+- Available with V2 Scheduler only <b>(Nothing will happen with V3 Scheduler!)</b>
 - GitHub: https://github.com/piccoripico/Review-Card-Order-Customizer
 
 ### Configuration
