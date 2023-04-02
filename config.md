@@ -7,10 +7,10 @@ This addon is designed to sort the order of cards displayed during review sessio
 
 ### Configuration
 
-To sort cards by their due date (descending) and ease factor (ascending), you can set it as follows:  
-{  
-      "order_by": "due desc, factor"  
-}  
+To sort cards by their due date (descending) and ease factor (ascending), you can set it as follows:
+
+    "order_by": "due desc, factor"
+    
 The "desc" is optional (ascending if skipped). Higher priority items come first.
 
 - id: The unique identifier (ID) of the card.
