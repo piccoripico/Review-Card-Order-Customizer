@@ -1,6 +1,7 @@
 import anki, json, random
 from anki.scheduler.v2 import Scheduler
 from aqt import mw
+from anki.consts import *
 from PyQt5.QtWidgets import QMessageBox
 
 def _fillRev(self, recursing: bool = False) -> bool:
@@ -20,12 +21,11 @@ def _fillRev(self, recursing: bool = False) -> bool:
 
         # queue types: 0=new, 1=(re)lrn, 2=rev, 3=day (re)lrn,
         #   4=preview, -1=suspended, -2=sibling buried, -3=manually buried
-        # 'queue = 2' is replaced from 'queue = {QUEUE_TYPE_REV}'
         # 'order by {order_by}' is replaced from 'order by due, random()'
         self._revQueue = self.col.db.list(
             f"""
 select id from cards where
-did in %s and queue = 2 and due <= ?
+did in %s and queue = {QUEUE_TYPE_REV} and due <= ?
 order by {order_by}
 limit ?"""
             % self._deck_limit(),
