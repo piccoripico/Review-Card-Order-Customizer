@@ -1,17 +1,21 @@
-## Review Card Order Customizer (Available with V2 Scheduler only)
+## Review Card Order Sort Customizer (Available with V2 Scheduler only)
 
 This addon is designed to sort the order of cards displayed during review sessions.
 - Possibly useful when you want to study in a specific sequence.
-- Available with V2 Scheduler only (Nothing will happen with V3 Scheduler)
-- GitHub: https://github.com/piccoripico/Review-Card-Order-Customizer
+- Available with V2 Scheduler only <b>(Nothing will happen with V3 Scheduler!)</b>. Please check in advance whether the V3 Scheduler is enabled in Anki's Preferences.
+- GitHub: https://github.com/piccoripico/Review-Card-Order-Sort-Customizer
 
 ### Configuration
 
-To sort cards by their due date (descending) and ease factor (ascending), you can set it as follows:
+To sort cards by their deck ID (ascending), due date (descending) and review times (ascending), you can set it as the following:
 
-    "order_by": "due desc, factor"
+    "order_by": "did, due desc, reps"
     
-The "desc" is optional (ascending if skipped). Higher priority items come first.
+- The "desc" is optional (ascending if skipped).
+- Higher priority items come first.
+- The Anki's default is "due, random()" for your information.
+
+### List of items
 
 - id: The unique identifier (ID) of the card.
 - nid: The note ID of the card.
@@ -31,7 +35,7 @@ The "desc" is optional (ascending if skipped). Higher priority items come first.
 - odid: The original deck ID (used only in filtered decks).
 - random(): Randomize the order.
 
----
+--- Japanese Translation ---
 - id: カードの一意の識別子 (ID)。
 - nid: カードのノートID。
 - did: カードが属しているデッキのID。
