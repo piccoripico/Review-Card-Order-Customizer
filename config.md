@@ -1,4 +1,4 @@
-## Review Card Order Customizer (Available with V2 Scheduler only)
+## Review Card Order Customizer (V2 Scheduler only)
 
 This addon is designed to sort the order of cards displayed during review sessions.
 - Possibly useful when you want to study in a specific sequence.
