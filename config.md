@@ -1,9 +1,9 @@
-## Review Card Order Sort Customizer (Available with V2 Scheduler only)
+## Review Card Order Customizer (Available with V2 Scheduler only)
 
 This addon is designed to sort the order of cards displayed during review sessions.
 - Possibly useful when you want to study in a specific sequence.
 - Available with V2 Scheduler only <b>(Nothing will happen with V3 Scheduler!)</b>. Please check in advance whether the V3 Scheduler is enabled in Anki's Preferences.
-- GitHub: https://github.com/piccoripico/Review-Card-Order-Sort-Customizer
+- GitHub: https://github.com/piccoripico/Review-Card-Order-Customizer
 
 ### Configuration
 
