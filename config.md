@@ -1,6 +1,7 @@
 ## Review Card Order Customizer (V2 Scheduler only)
 
 This addon is designed to sort the order of cards displayed during review sessions.
+
 - Possibly useful when you want to study in a specific sequence.
 - Available with V2 Scheduler only <b>(Nothing will happen with V3 Scheduler!)</b>. Please check in advance whether the V3 Scheduler is enabled in Anki's Preferences.
 - GitHub: https://github.com/piccoripico/Review-Card-Order-Customizer
@@ -35,7 +36,8 @@ To sort cards by their deck ID (ascending), due date (descending) and review tim
 - odid: The original deck ID (used only in filtered decks).
 - random(): Randomize the order.
 
---- Japanese Translation
+--- Japanese Translation ---
+
 - id: カードの一意の識別子 (ID)。
 - nid: カードのノートID。
 - did: カードが属しているデッキのID。
