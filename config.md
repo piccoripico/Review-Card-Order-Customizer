@@ -35,7 +35,7 @@ To sort cards by their deck ID (ascending), due date (descending) and review tim
 - odid: The original deck ID (used only in filtered decks).
 - random(): Randomize the order.
 
---- Japanese Translation ---
+--- Japanese Translation
 - id: カードの一意の識別子 (ID)。
 - nid: カードのノートID。
 - did: カードが属しているデッキのID。
