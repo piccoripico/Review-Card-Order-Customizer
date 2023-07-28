@@ -27,7 +27,7 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 
 - Added config window
 
-### Items
+### Items (For the optional direct input as ORDER BY clause, please use the items in the middle column. For example, "did, random()")
 
 - 1)Card ID: id - The unique identifier (ID) of the card.
 - 2)Note ID: nid - The note ID of the card.
