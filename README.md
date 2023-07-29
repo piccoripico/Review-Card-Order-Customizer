@@ -23,9 +23,11 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 
 ### Changelog
 
-2023/7/28
+2023/07/28
+- Added config window (after this addon is updated, please restart Anki.)
 
-- Added config window
+2023/07/29
+- Changed supported Anki versions to 2.1.50+
 
 ### Items (For the optional direct input as ORDER BY clause, please use the items in the middle column. For example, "did, random()")
 
