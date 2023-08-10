@@ -29,6 +29,9 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 2023-07-29
 - Changed supported Anki versions to 2.1.50+
 
+2023-08-10
+- Changed config window's layout for usability improvement
+
 ### Items (For the optional direct input as ORDER BY clause, please use the items in the middle column. For example, "did, random()")
 
 - 1)Card ID: id - The unique identifier (ID) of the card.
