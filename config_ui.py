@@ -19,7 +19,7 @@ class ConfigUI(QDialog):
         self.box3 = QGroupBox("3rd Priority")
         self.box4 = QGroupBox("4th Priority")
         self.box5 = QGroupBox("5th Priority")
-        self.boxUser = QGroupBox("(2) Optional: You can directly input your own code (SQL's ORDER BY clause). Please note that this feature is only available when all of the above 5 (None)s are selected.")
+        self.boxUser = QGroupBox("(2) Optional: You can directly input your own code (using SQL's ORDER BY clause). Please note that this feature is only available when all of the above 5 items are set to (None). See the add-on page for the item list.")
         self.layout1 = QVBoxLayout()
         self.layout2 = QVBoxLayout()
         self.layout3 = QVBoxLayout()
@@ -89,23 +89,30 @@ def create_order_radiobuttons(self, layout, config_key):
     none_items = [i for i in all_order_by_items if i in order_by_none]
     asc_items = [i for i in all_order_by_items if i in order_by_asc_items]
     desc_items = [i for i in all_order_by_items if i in order_by_desc_items]
+    row_offset = 2 if none_items else 0
 
     for i, order in enumerate(none_items):
         radiobutton = QRadioButton(order)
         radiobutton.setChecked(order in self.config.get(config_key, []))
-        gridLayout.addWidget(radiobutton, i, 0)  # Add to left column
+        gridLayout.addWidget(radiobutton, 0, i)  # Add to top row
         radiobuttons.append(radiobutton)
+
+    if none_items:
+        hline = QFrame()
+        hline.setFrameShape(QFrame.HLine)
+        hline.setFrameShadow(QFrame.Sunken)
+        gridLayout.addWidget(hline, 1, 0, 1, 2)  # Add horizontal line. Span across 2 columns
 
     for i, order in enumerate(asc_items):
         radiobutton = QRadioButton(order)
         radiobutton.setChecked(order in self.config.get(config_key, []))
-        gridLayout.addWidget(radiobutton, i, 1)  # Add to center column
+        gridLayout.addWidget(radiobutton, i + row_offset, 0)  # Add to rows below none_items and horizontal line, left column
         radiobuttons.append(radiobutton)
 
     for i, order in enumerate(desc_items):
         radiobutton = QRadioButton(order)
         radiobutton.setChecked(order in self.config.get(config_key, []))
-        gridLayout.addWidget(radiobutton, i, 2)  # Add to right column
+        gridLayout.addWidget(radiobutton, i + row_offset, 1)  # Add to rows below none_items and horizontal line, right column
         radiobuttons.append(radiobutton)
 
     layout.addLayout(gridLayout)  # Add grid layout to the main layout
