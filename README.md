@@ -35,7 +35,7 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 2023-08-14
 - Added 3 sort items: H)Note type name, I)Note sort field, J)Deck name
 
-### Sort items (For the optional direct input as ORDER BY clause, please use the items in the middle column. For example, "cards.did, random()")
+### Sort items (For the optional direct input to be used as ORDER BY clause, please use the items in the middle column. For example, 'cards.did, random()')
 
 | Sort Items | (SQL) | Description |
 |---|---|---|
