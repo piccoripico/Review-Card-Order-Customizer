@@ -37,7 +37,7 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 
 ### Items (For the optional direct input as ORDER BY clause, please use the items in the middle column. For example, "cards.did, random()")
 
-- 1)Card ID: cards.id - The unique identifier (ID) of the card. (FIY: id/1000) is the created timestamp.)
+- 1)Card ID: cards.id - The unique identifier (ID) of the card. (time.localtime(cards.id/1000) = created timestamp)
 - 2)Note ID: cards.nid - The note ID of the card.
 - 3)Deck ID: cards.did - The ID of the deck the card belongs to.
 - 4)Card template order: cards.ord - The order number of the card's template.
