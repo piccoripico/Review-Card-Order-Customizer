@@ -18,7 +18,7 @@ def _fillRev(self, recursing: bool = False) -> bool:
         config = mw.addonManager.getConfig(__name__)
 
         # Get the custom order by setting
-        # time.localtime(id/1000) = date created
+        # time.localtime(cards.id/1000) = date created
         orders = ['order1', 'order2', 'order3', 'order4', 'order5']
         labeled_order_by_items = {
             "(None)": "",
