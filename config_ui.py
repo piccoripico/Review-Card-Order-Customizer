@@ -140,7 +140,10 @@ order_by_asc_items = [
     "E)Card remaining steps",
     "F)Card original due date",
     "G)Deck original ID",
-    "Randomize cards"
+    "H)Note type name",
+    "I)Note sort field",
+    "J)Deck name",
+    "Randomize cards",
 ]
 
 order_by_desc_items = [
@@ -159,7 +162,10 @@ order_by_desc_items = [
     "D)desc",
     "E)desc",
     "F)desc",
-    "G)desc"
+    "G)desc",
+    "H)desc",
+    "I)desc",
+    "J)desc",
 ]
 
 order_by_none = ["(None)"]
