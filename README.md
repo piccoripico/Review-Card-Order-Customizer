@@ -9,7 +9,7 @@ This addon is designed to sort the order of cards displayed during review sessio
 
 ### Config
 
-To sort cards by their Deck ID and Card ID, set the configuration as the following image:
+To sort cards by their Deck ID and Card ID for example, set the configuration as the following image:
 
 <img src="https://github.com/piccoripico/Review-Card-Order-Customizer/raw/main/ConfigWindow.JPG">
 
@@ -32,7 +32,7 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 2023-08-10
 - Changed config window's layout for usability improvement
 
-2023-08-15
+2023-08-14
 - Added 3 sort items: H)Note type name, I)Note sort field, J)Deck name
 
 ### Items (For the optional direct input as ORDER BY clause, please use the items in the middle column. For example, "cards.did, random()")
