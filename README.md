@@ -20,11 +20,11 @@ To sort cards by their Deck ID and Card ID for example, set the configuration as
 ### Usage Examples
 
 1. Order by card creation date  
-   Select: Card ID (IDs are the older the smaller.)  
+   Select: Card ID (The older creation the smaller number.)  
 2. Completely random order  
    Select: Randomize cards  
 3. Order by deck name firstly, and note content secondly  
-   Select: (1st) Deck name (2nd) Note sort field (This allows management by manually entered serial numbers.)  
+   Select: (1st) Deck name (2nd) Note sort field (This setting allows management by manually entered serial numbers.)  
 
 ### Note
 
