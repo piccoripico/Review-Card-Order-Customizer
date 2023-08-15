@@ -17,6 +17,39 @@ To sort cards by their Deck ID and Card ID for example, set the configuration as
 - Higher priority item(s) first.
 - FIY: The Anki's default is "cards.due, random()".
 
+### Usage Examples
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>Sort by</th>
+    <th>Sort item</th>
+    <th>Remarks</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>1</td>
+    <td>card creation date</td>
+    <td>Card ID</td>
+    <td>IDs are the older the smaller.</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>interval days (descending)</td>
+    <td>Card interval days desc</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>deck name firstly, and note content secondly</td>
+    <td>(1st) Deck name<br>(2nd) Note sort field</td>
+    <td>This allows management by manually entered serial numbers.</td>
+  </tr>
+</tbody>
+</table>
+
 ### Note
 
 When the V2 scheduler is phased out of Anki, this addon will become obsolete. The V3 scheduler has its back-end system written in Rust, making it difficult to perform the same operations as with the V2 scheduler.
@@ -38,25 +71,114 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 
 ### Sort items (For the optional direct input to be used as ORDER BY clause, please use the items in the middle column. For example, 'cards.did, random()')
 
-| Sort Items | (SQL) | Description |
-|---|---|---|
-| 1)Card ID | cards.id | The unique identifier (ID) of the card. (time.localtime(cards.id/1000) =   created timestamp) |
-| 2)Note ID | cards.nid | The note ID of the card. |
-| 3)Deck ID | cards.did | The ID of the deck the card belongs to. |
-| 4)Card template order | cards.ord | The order number of the card's template. |
-| 5)Card modified timestamp | cards.mod | The last modification timestamp of the card. |
-| 6)Card update sequence | cards.usn | The update sequence number of the card (used for syncing). |
-| 7)Card type | cards.type | The type of the card (0 = new, 1 = learning, 2 = review). |
-| 8)Card queue type | cards.queue | The type of the card's queue (0 = new, 1 = learning, 2 = review, 3 = day   learning, 4 = preview, -1 = suspended, -2 = sibling buried, -3 = manually   buried). |
-| 9)Card due date | cards.due | The due date of the card. For new cards, it represents the due order. For   review cards, it represents the due date. |
-| A)Card interval days | cards.ivl | The current interval (in days) of the card. |
-| B)Card ease factor | cards.factor | The current ease factor of the card. |
-| C)Card review times | cards.reps | The number of reviews of the card. |
-| D)Card lapse times | cards.lapses | The total number of lapses of the card. |
-| E)Card remaining steps | cards.left | The remaining number of learning steps of the card. |
-| F)Card original due date | cards.odue | The original due date (used only in filtered decks). |
-| G)Deck original ID | cards.odid | The original deck ID (used only in filtered decks). |
-| H)Note type name | notetypes.name | The name of the note type the card belongs to. |
-| I)Note sort field | notes.sfld | The content of the note's field that you set to "Sort by this field   in the browser". |
-| J)Deck name | decks.name | The name of the deck the card belongs to. |
-| Randomize cards | random() | Randomize the card order. |
+<table>
+<thead>
+  <tr>
+    <th>Sort Items</th>
+    <th>(SQL)</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>1)Card ID</td>
+    <td>cards.id</td>
+    <td>The unique identifier (ID) of the card. (time.localtime(cards.id/1000) =   created timestamp)</td>
+  </tr>
+  <tr>
+    <td>2)Note ID</td>
+    <td>cards.nid</td>
+    <td>The note ID of the card.</td>
+  </tr>
+  <tr>
+    <td>3)Deck ID</td>
+    <td>cards.did</td>
+    <td>The ID of the deck the card belongs to.</td>
+  </tr>
+  <tr>
+    <td>4)Card template order</td>
+    <td>cards.ord</td>
+    <td>The order number of the card's template.</td>
+  </tr>
+  <tr>
+    <td>5)Card modified timestamp</td>
+    <td>cards.mod</td>
+    <td>The last modification timestamp of the card.</td>
+  </tr>
+  <tr>
+    <td>6)Card update sequence</td>
+    <td>cards.usn</td>
+    <td>The update sequence number of the card (used for syncing).</td>
+  </tr>
+  <tr>
+    <td>7)Card type</td>
+    <td>cards.type</td>
+    <td>The type of the card (0 = new, 1 = learning, 2 = review).</td>
+  </tr>
+  <tr>
+    <td>8)Card queue type</td>
+    <td>cards.queue</td>
+    <td>The type of the card's queue (0 = new, 1 = learning, 2 = review, 3 = day learning, 4 = preview, -1 = suspended, -2 = sibling buried, -3 = manually buried).</td>
+  </tr>
+  <tr>
+    <td>9)Card due date</td>
+    <td>cards.due</td>
+    <td>The due date of the card. For new cards, it represents the due order. For review cards, it represents the due date.</td>
+  </tr>
+  <tr>
+    <td>A)Card interval days</td>
+    <td>cards.ivl</td>
+    <td>The current interval (in days) of the card.</td>
+  </tr>
+  <tr>
+    <td>B)Card ease factor</td>
+    <td>cards.factor</td>
+    <td>The current ease factor of the card.</td>
+  </tr>
+  <tr>
+    <td>C)Card review times</td>
+    <td>cards.reps</td>
+    <td>The number of reviews of the card.</td>
+  </tr>
+  <tr>
+    <td>D)Card lapse times</td>
+    <td>cards.lapses</td>
+    <td>The total number of lapses of the card.</td>
+  </tr>
+  <tr>
+    <td>E)Card remaining steps</td>
+    <td>cards.left</td>
+    <td>The remaining number of learning steps of the card.</td>
+  </tr>
+  <tr>
+    <td>F)Card original due date</td>
+    <td>cards.odue</td>
+    <td>The original due date (used only in filtered decks).</td>
+  </tr>
+  <tr>
+    <td>G)Deck original ID</td>
+    <td>cards.odid</td>
+    <td>The original deck ID (used only in filtered decks).</td>
+  </tr>
+  <tr>
+    <td>H)Note type name</td>
+    <td>notetypes.name</td>
+    <td>The name of the note type the card belongs to.</td>
+  </tr>
+  <tr>
+    <td>I)Note sort field</td>
+    <td>notes.sfld</td>
+    <td>The content of the note's field that you set to "Sort by this field in the browser".</td>
+  </tr>
+  <tr>
+    <td>J)Deck name</td>
+    <td>decks.name</td>
+    <td>The name of the deck the card belongs to.</td>
+  </tr>
+  <tr>
+    <td>Randomize cards</td>
+    <td>random()</td>
+    <td>Randomize the card order.</td>
+  </tr>
+</tbody>
+</table>
