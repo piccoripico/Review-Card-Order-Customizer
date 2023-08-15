@@ -49,15 +49,15 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 
 |         Sort Items        	|      (SQL)     	|                                                                          Description                                                                          	|
 |---------------------------	|----------------	|---------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| 1)Card ID                 	| cards.id       	| The unique identifier (ID) of the card.  (time.localtime(cards.id/1000) = created timestamp)                                                                  	|
+| 1)Card ID                 	| cards.id       	| The unique identifier (ID) of the card. (time.localtime(cards.id/1000) = created timestamp)                                                                  	|
 | 2)Note ID                 	| cards.nid      	| The note ID of the card.                                                                                                                                      	|
 | 3)Deck ID                 	| cards.did      	| The ID of the deck the card belongs to.                                                                                                                       	|
 | 4)Card template order     	| cards.ord      	| The order number of the card's template.                                                                                                                      	|
 | 5)Card modified timestamp 	| cards.mod      	| The last modification timestamp of the card.                                                                                                                  	|
-| 6)Card update sequence    	| cards.usn      	| The update sequence number of the card  (used for syncing).                                                                                                   	|
-| 7)Card type               	| cards.type     	| The type of the card  (0 = new, 1 = learning, 2 = review).                                                                                                    	|
-| 8)Card queue type         	| cards.queue    	| The type of the card's queue  (0 = new, 1 = learning, 2 = review, 3 = day learning, 4 = preview,  -1 = suspended, -2 = sibling buried, -3 = manually buried). 	|
-| 9)Card due date           	| cards.due      	| The due date of the card.  For new cards, it represents the due order.  For review cards, it represents the due date.                                         	|
+| 6)Card update sequence    	| cards.usn      	| The update sequence number of the card (used for syncing).                                                                                                   	|
+| 7)Card type               	| cards.type     	| The type of the card (0 = new, 1 = learning, 2 = review).                                                                                                    	|
+| 8)Card queue type         	| cards.queue    	| The type of the card's queue (0 = new, 1 = learning, 2 = review, 3 = day learning, 4 = preview,  -1 = suspended, -2 = sibling buried, -3 = manually buried). 	|
+| 9)Card due date           	| cards.due      	| The due date of the card. For new cards, it represents the due order. For review cards, it represents the due date.                                         	|
 | A)Card interval days      	| cards.ivl      	| The current interval (in days) of the card.                                                                                                                   	|
 | B)Card ease factor        	| cards.factor   	| The current ease factor of the card.                                                                                                                          	|
 | C)Card review times       	| cards.reps     	| The number of reviews of the card.                                                                                                                            	|
@@ -66,6 +66,6 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 | F)Card original due date  	| cards.odue     	| The original due date (used only in filtered decks).                                                                                                          	|
 | G)Deck original ID        	| cards.odid     	| The original deck ID (used only in filtered decks).                                                                                                           	|
 | H)Note type name          	| notetypes.name 	| The name of the note type the card belongs to.                                                                                                                	|
-| I)Note sort field         	| notes.sfld     	| The content of the note's field  that you set to "Sort by this field in the browser".                                                                         	|
+| I)Note sort field         	| notes.sfld     	| The content of the note's field that you set to "Sort by this field in the browser".                                                                         	|
 | J)Deck name               	| decks.name     	| The name of the deck the card belongs to.                                                                                                                     	|
 | Randomize cards           	| random()       	| Randomize the card order.                                                                                                                                     	|
