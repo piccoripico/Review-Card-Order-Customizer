@@ -19,7 +19,7 @@ class ConfigUI(QDialog):
         self.box3 = QGroupBox("3rd Priority")
         self.box4 = QGroupBox("4th Priority")
         self.box5 = QGroupBox("5th Priority")
-        self.boxUser = QGroupBox("(2) Optional: You can directly input your own code (using SQL's ORDER BY clause). Please note that this feature is only available when all of the above 5 items are set to (None). See the add-on page for the item list.")
+        self.boxUser = QGroupBox("(2) Optional: You can directly input your own ORDER BY clause. Please note that this feature is only available when all of the above 5 items are set to (None). See the add-on page for the item list. (No review shown if error.)")
         self.layout1 = QVBoxLayout()
         self.layout2 = QVBoxLayout()
         self.layout3 = QVBoxLayout()

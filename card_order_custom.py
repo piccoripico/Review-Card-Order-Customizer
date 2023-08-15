@@ -1,9 +1,9 @@
-from re import T
-import anki, json, random
-from anki.scheduler.v2 import Scheduler
+import anki
 from aqt import mw
-from anki.consts import *
-from PyQt5.QtWidgets import QMessageBox
+# from aqt.utils import showText
+from anki.consts import QUEUE_TYPE_REV
+
+# ERROR_MSG = "[Add-on] Review Card Order Customizer\n\n{}"
 
 def _fillRev(self, recursing: bool = False) -> bool:
     "True if a review card can be fetched."
@@ -96,23 +96,20 @@ def _fillRev(self, recursing: bool = False) -> bool:
 
         sql_query = sql_pre + sql_var + sql_suf
 
-        self._revQueue = self.col.db.list(
-            sql_query
-            % self._deck_limit(),
-            self.today,
-            lim,
-        )
-
-        ''' # quick debugging
-        debug_info = "Deck limit: " + str(self._deck_limit()) + "\nRevQueue: " + str(self._revQueue)
-        for card_id in self._revQueue:
-            card = self.col.getCard(card_id)
-            debug_info += f"\nCardID: {card_id}, DeckID: {card.did}, NoteID: {card.nid}"
-
-        msg_box = QMessageBox()
-        msg_box.setText(debug_info)
-        msg_box.exec()
-        '''
+        try:
+            self._revQueue = self.col.db.list(
+                sql_query
+                % self._deck_limit(),
+                self.today,
+                lim,
+            )
+        except anki.errors.DBError as e:
+            return False
+            # showText(ERROR_MSG.format(str(e)))
+        except:
+            return False
+            # custom_error_message = "[Add-on] Review Card Order Customizer: An unexpected error occurred. Continuing with Anki's default order..."
+            # showText(ERROR_MSG.format(str(custom_error_message)))
 
         if self._revQueue:
             # preserve order
