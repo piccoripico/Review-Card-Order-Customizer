@@ -32,8 +32,9 @@ When the V2 scheduler is phased out of Anki, this addon will become obsolete. Th
 2023-08-10
 - Changed config window's layout for usability improvement
 
-2023-08-14
+2023-08-15
 - Added 3 sort items: H)Note type name, I)Note sort field, J)Deck name
+- Added error handling
 
 ### Sort items (For the optional direct input to be used as ORDER BY clause, please use the items in the middle column. For example, 'cards.did, random()')
 
