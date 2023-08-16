@@ -16,12 +16,12 @@ This addon is designed to sort the order of cards displayed during review sessio
 
 ### Usage Examples
 
-1. Order by card creation date  
-> Select: Card ID (The older creation the smaller number.)
-2. Completely random order  
-> Select: Randomize cards  
-3. Order by deck name firstly, and note content secondly  
-> Select: (1st) Deck name (2nd) Note sort field (This setting allows management by manually entered serial numbers.)  
+- Example 1: Order by card creation date  
+  - Select: Card ID (The older creation the smaller number.)
+- Example 2: Completely random order  
+  - Select: Randomize cards  
+- Example 3: Order by deck name firstly, and note content secondly  
+  - Select: (1st) Deck name (2nd) Note sort field (This setting allows management by manually entered serial numbers.)  
 
 ### Note
 
@@ -29,18 +29,15 @@ This addon is designed to sort the order of cards displayed during review sessio
 
 ### Changelog
 
-2023-07-28
-- Added config window (after this addon is updated, please restart Anki.)
-
-2023-07-29
-- Changed supported Anki versions to 2.1.50+
-
-2023-08-10
-- Changed config window's layout for usability improvement
-
-2023-08-15
-- Added 3 sort items: H)Note type name, I)Note sort field, J)Deck name
-- Added error handling
+- 2023-07-28
+  - Added config window (after this addon is updated, please restart Anki.)
+- 2023-07-29
+  - Changed supported Anki versions to 2.1.50+
+- 2023-08-10
+  - Changed config window's layout for usability improvement
+- 2023-08-15
+  - Added 3 sort items: H)Note type name, I)Note sort field, J)Deck name
+  - Added error handling
 
 ### Sort items (For the optional direct input to be used as ORDER BY clause, please use the items in the middle column. For example, 'cards.did, random()')
 
