@@ -13,7 +13,7 @@ This addon is designed to sort the order of cards displayed during review sessio
 - To sort cards by their Deck ID and Card ID for example, set the configuration as the following image: <img src="https://github.com/piccoripico/Review-Card-Order-Customizer/raw/main/ConfigWindow.JPG">
 - Descending order if "desc" selected.
 - Higher priority item(s) first.
-- FIY: The Anki's default is "cards.due, random()".
+- FYI: The Anki's default is "cards.due, random()".
 
 ### Usage Examples
 
