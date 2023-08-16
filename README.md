@@ -1,5 +1,5 @@
 ## Review Card Order Customizer (V2 Scheduler only)
-### Available on AnkiWeb: https://ankiweb.net/shared/info/81245454
+> Available on AnkiWeb: https://ankiweb.net/shared/info/81245454
 
 This addon is designed to sort the order of cards displayed during review sessions.
 
@@ -9,10 +9,7 @@ This addon is designed to sort the order of cards displayed during review sessio
 
 ### Config
 
-To sort cards by their Deck ID and Card ID for example, set the configuration as the following image:
-
-<img src="https://github.com/piccoripico/Review-Card-Order-Customizer/raw/main/ConfigWindow.JPG">
-
+- To sort cards by their Deck ID and Card ID for example, set the configuration as the following image: <img src="https://github.com/piccoripico/Review-Card-Order-Customizer/raw/main/ConfigWindow.JPG">
 - Descending order if "desc" selected.
 - Higher priority item(s) first.
 - FIY: The Anki's default is "cards.due, random()".
@@ -20,15 +17,15 @@ To sort cards by their Deck ID and Card ID for example, set the configuration as
 ### Usage Examples
 
 1. Order by card creation date  
-   Select: Card ID (The older creation the smaller number.)  
+> Select: Card ID (The older creation the smaller number.)
 2. Completely random order  
-   Select: Randomize cards  
+> Select: Randomize cards  
 3. Order by deck name firstly, and note content secondly  
-   Select: (1st) Deck name (2nd) Note sort field (This setting allows management by manually entered serial numbers.)  
+> Select: (1st) Deck name (2nd) Note sort field (This setting allows management by manually entered serial numbers.)  
 
 ### Note
 
-When the V2 scheduler is phased out of Anki, this addon will become obsolete. The V3 scheduler has its back-end system written in Rust, making it difficult to perform the same operations as with the V2 scheduler.
+- When the V2 scheduler is phased out of Anki, this addon will become obsolete. The V3 scheduler has its back-end system written in Rust, making it difficult to perform the same operations as with the V2 scheduler.
 
 ### Changelog
 
