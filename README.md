@@ -1,11 +1,12 @@
 ## Review Card Order Customizer (V2 Scheduler only)
 > Available on AnkiWeb: <a href="https://ankiweb.net/shared/info/81245454" rel="nofollow">https://ankiweb.net/shared/info/81245454</a>
 
+> GitHub: <a href="https://github.com/piccoripico/Review-Card-Order-Customizer" rel="nofollow">https://github.com/piccoripico/Review-Card-Order-Customizer</a>
+
 This addon is designed to sort the order of cards displayed during review sessions.
 
 - Possibly useful for those who want to learn in a specific sequence.
 - Please note that this feature is only available with the V2 Scheduler <b>(it will not work with the V3 Scheduler)</b>. Make sure the V3 Scheduler is disabled in Anki's Preferences.
-- GitHub: <a href="https://github.com/piccoripico/Review-Card-Order-Customizer" rel="nofollow">https://github.com/piccoripico/Review-Card-Order-Customizer</a>
 
 ### Config
 
