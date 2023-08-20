@@ -64,9 +64,36 @@ class ConfigUI(QDialog):
 
         self.layout.addWidget(self.box12345)
         self.layout.addWidget(self.boxUser)
-        self.layout.addLayout(self.layoutOKCancel)
 
-        self.setLayout(self.layout)
+        # Create a scroll area and set its properties
+        self.scroll_area = QScrollArea()
+        self.scroll_area.setWidgetResizable(True)
+        self.scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+
+            # Create a widget to hold the entire layout
+        self.scroll_widget = QWidget()
+        self.scroll_widget.setLayout(self.layout)
+
+        # Set the initial size of the dialog
+        self.scroll_widget.adjustSize()
+        scrollbar_width = self.scroll_area.verticalScrollBar().width()
+        initial_width = self.scroll_widget.width() + scrollbar_width  # Add the scrollbar width
+        screen_height = QApplication.primaryScreen().geometry().height()
+        initial_height = min(initial_width, screen_height * 0.8)  # Set the height to 80% of the screen height or the width, whichever is smaller
+
+        self.resize(initial_width, initial_height)
+
+            # Set the scroll area's widget to the layout widget
+        self.scroll_area.setWidget(self.scroll_widget)
+
+            # Create a new main layout and add the scroll area to it
+        self.main_layout = QVBoxLayout(self)
+        self.main_layout.addWidget(self.scroll_area)
+        self.main_layout.addLayout(self.layoutOKCancel)
+
+            # Set the dialog's layout to the main layout
+        self.setLayout(self.main_layout)
 
     def save_config(self):
         for order_radiobuttons, config_key in [(self.order1_radiobuttons, 'order1'),
@@ -139,10 +166,24 @@ order_by_asc_items = [
     "D)Card lapse times",
     "E)Card remaining steps",
     "F)Card original due date",
-    "G)Deck original ID",
-    "H)Note type name",
+    "G)Card original deck ID",
+    "H)Card flags",
+    "K)Note GUID",
+    "L)Note model ID",
+    "M)Note modified timestamp",
+    "N)Note update sequence",
+    "O)Note tags",
+    "P)Note fields",
     "I)Note sort field",
+    "Q)Notetype name",
+    "R)Notetype modified timestamp",
+    "S)Notetype update sequence",
     "J)Deck name",
+    "T)Deck modified timestamp",
+    "U)Deck update sequence",
+    "V)Template name",
+    "W)Template modified timestamp",
+    "X)Template update sequence",
     "Randomize cards",
 ]
 
@@ -164,8 +205,22 @@ order_by_desc_items = [
     "F)desc",
     "G)desc",
     "H)desc",
+    "K)desc",
+    "L)desc",
+    "M)desc",
+    "N)desc",
+    "O)desc",
+    "P)desc",
     "I)desc",
+    "Q)desc",
+    "R)desc",
+    "S)desc",
     "J)desc",
+    "T)desc",
+    "U)desc",
+    "V)desc",
+    "W)desc",
+    "X)desc",
 ]
 
 order_by_none = ["(None)"]

@@ -37,10 +37,24 @@ def _fillRev(self, recursing: bool = False) -> bool:
             "D)Card lapse times": "cards.lapses",
             "E)Card remaining steps": "cards.left",
             "F)Card original due date": "cards.odue",
-            "G)Deck original ID": "cards.odid",
-            "H)Note type name": "notetypes.name",
+            "G)Card original deck ID": "cards.odid",
+            "H)Card flags": "cards.flags",
+            "K)Note GUID": "notes.guid",
+            "L)Note model ID": "notes.mid",
+            "M)Note modified timestamp": "notes.mod",
+            "N)Note update sequence": "notes.usn",
+            "O)Note tags": "notes.tags",
+            "P)Note fields": "notes.flds",
             "I)Note sort field": "notes.sfld",
+            "Q)Notetype name": "notetypes.name",
+            "R)Notetype modified timestamp": "notetypes.mtime_secs",
+            "S)Notetype update sequence": "notetypes.usn",
             "J)Deck name": "decks.name",
+            "T)Deck modified timestamp": "decks.mtime_secs",
+            "U)Deck update sequence": "decks.usn",
+            "V)Template name": "templates.name",
+            "W)Template modified timestamp": "templates.mtime_secs",
+            "X)Template update sequence": "templates.usn",
             "Randomize cards": "random()",
             "1)desc": "cards.id desc",
             "2)desc": "cards.nid desc",
@@ -58,9 +72,23 @@ def _fillRev(self, recursing: bool = False) -> bool:
             "E)desc": "cards.left desc",
             "F)desc": "cards.odue desc",
             "G)desc": "cards.odid desc",
-            "H)desc": "notetypes.name desc",
+            "H)desc": "cards.flags desc",
+            "K)desc": "notes.guid desc",
+            "L)desc": "notes.mid desc",
+            "M)desc": "notes.mod desc",
+            "N)desc": "notes.usn desc",
+            "O)desc": "notes.tags desc",
+            "P)desc": "notes.flds desc",
             "I)desc": "notes.sfld desc",
+            "Q)desc": "notetypes.name desc",
+            "R)desc": "notetypes.mtime_secs desc",
+            "S)desc": "notetypes.usn desc",
             "J)desc": "decks.name desc",
+            "T)desc": "decks.mtime_secs desc",
+            "U)desc": "decks.usn desc",
+            "V)desc": "templates.name desc",
+            "W)desc": "templates.mtime_secs desc",
+            "X)desc": "templates.usn desc",
         }
         order_values = []
         for order in orders:
@@ -87,12 +115,14 @@ def _fillRev(self, recursing: bool = False) -> bool:
         sql_var = ""
         sql_suf = f" where cards.did in %s and cards.queue = {QUEUE_TYPE_REV} and cards.due <= ? order by {order_by} limit ?"
 
-        if 'decks.name' in order_by:
+        if 'decks.' in order_by:
             sql_var += " join decks on cards.did = decks.id"
-        if 'notetypes.name' in order_by or 'notes.sfld' in order_by:
+        if 'notes.' in order_by or 'notetypes.' in order_by or 'templates.' in order_by:
             sql_var += " join notes on cards.nid = notes.id"
-        if 'notetypes.name' in order_by:
+        if 'notetypes.' in order_by:
             sql_var += " join notetypes on notes.mid = notetypes.id"
+        if 'templates.' in order_by:
+            sql_var += " join templates on notes.mid = templates.ntid"
 
         sql_query = sql_pre + sql_var + sql_suf
 
