@@ -40,8 +40,7 @@ This addon is designed to sort the order of cards displayed during review sessio
   - Added 3 sort items: Note type name, Note sort field, Deck name
   - Added error handling
 - 2023-08-20
-  - Added 14 sort items: Card flags, Note GUID, Note model ID, Note modified timestamp, Note update sequence, Note tags, Note fields, Note sort field, Notetype modified timestamp, Notetype update sequence, Deck modified timestamp, Deck update sequence, Template name, Template modified timestamp, Template update sequence
-  - (Reference: https://github.com/ankidroid/Anki-Android/wiki/Database-Structure)
+  - Added 14 sort items: Card flags, Note GUID, Note model ID, Note modified timestamp, Note update sequence, Note tags, Note fields, Note sort field, Notetype modified timestamp, Notetype update sequence, Deck modified timestamp, Deck update sequence, Template name, Template modified timestamp, Template update sequence (Reference: <a href="https://github.com/ankidroid/Anki-Android/wiki/Database-Structure">https://github.com/ankidroid/Anki-Android/wiki/Database-Structure</a>)
 
 ### Sort items (For the optional direct input to be used as ORDER BY clause, please use the items in the middle column. For example, 'cards.did, random()')
 
