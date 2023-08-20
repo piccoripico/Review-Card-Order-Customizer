@@ -37,30 +37,47 @@ This addon is designed to sort the order of cards displayed during review sessio
 - 2023-08-10
   - Changed config window's layout for usability improvement
 - 2023-08-15
-  - Added 3 sort items: H)Note type name, I)Note sort field, J)Deck name
+  - Added 3 sort items: Note type name, Note sort field, Deck name
   - Added error handling
+- 2023-08-20
+  - Added 14 sort items: Card flags, Note GUID, Note model ID, Note modified timestamp, Note update sequence, Note tags, Note fields, Note sort field, Notetype modified timestamp, Notetype update sequence, Deck modified timestamp, Deck update sequence, Template name, Template modified timestamp, Template update sequence
+  - (Reference: https://github.com/ankidroid/Anki-Android/wiki/Database-Structure)
 
 ### Sort items (For the optional direct input to be used as ORDER BY clause, please use the items in the middle column. For example, 'cards.did, random()')
 
-|         Sort Items        	|      (SQL)     	|                                                                          Description                                                                          	|
-|---------------------------	|----------------	|---------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| 1)Card ID                 	| cards.id       	| The unique identifier (ID) of the card. (time.localtime(cards.id/1000) = created timestamp)                                                                  	|
-| 2)Note ID                 	| cards.nid      	| The note ID of the card.                                                                                                                                      	|
-| 3)Deck ID                 	| cards.did      	| The ID of the deck the card belongs to.                                                                                                                       	|
-| 4)Card template order     	| cards.ord      	| The order number of the card's template.                                                                                                                      	|
-| 5)Card modified timestamp 	| cards.mod      	| The last modification timestamp of the card.                                                                                                                  	|
-| 6)Card update sequence    	| cards.usn      	| The update sequence number of the card (used for syncing).                                                                                                   	|
-| 7)Card type               	| cards.type     	| The type of the card (0 = new, 1 = learning, 2 = review).                                                                                                    	|
-| 8)Card queue type         	| cards.queue    	| The type of the card's queue (0 = new, 1 = learning, 2 = review, 3 = day learning, 4 = preview,  -1 = suspended, -2 = sibling buried, -3 = manually buried). 	|
-| 9)Card due date           	| cards.due      	| The due date of the card. For new cards, it represents the due order. For review cards, it represents the due date.                                         	|
-| A)Card interval days      	| cards.ivl      	| The current interval (in days) of the card.                                                                                                                   	|
-| B)Card ease factor        	| cards.factor   	| The current ease factor of the card.                                                                                                                          	|
-| C)Card review times       	| cards.reps     	| The number of reviews of the card.                                                                                                                            	|
-| D)Card lapse times        	| cards.lapses   	| The total number of lapses of the card.                                                                                                                       	|
-| E)Card remaining steps    	| cards.left     	| The remaining number of learning steps of the card.                                                                                                           	|
-| F)Card original due date  	| cards.odue     	| The original due date (used only in filtered decks).                                                                                                          	|
-| G)Deck original ID        	| cards.odid     	| The original deck ID (used only in filtered decks).                                                                                                           	|
-| H)Note type name          	| notetypes.name 	| The name of the note type the card belongs to.                                                                                                                	|
-| I)Note sort field         	| notes.sfld     	| The content of the note's field that you set to "Sort by this field in the browser".                                                                         	|
-| J)Deck name               	| decks.name     	| The name of the deck the card belongs to.                                                                                                                     	|
-| Randomize cards           	| random()       	| Randomize the card order.                                                                                                                                     	|
+|         Sort Items                     |      (SQL)                 | Description                                                                                          |
+|---------------------------------------|----------------------------|------------------------------------------------------------------------------------------------------|
+| 1)Card ID                             | cards.id                   | The unique identifier (ID) of the card. (time.localtime(cards.id/1000) = created timestamp)         |
+| 2)Note ID                             | cards.nid                  | The note ID of the card.                                                                             |
+| 3)Deck ID                             | cards.did                  | The ID of the deck the card belongs to.                                                              |
+| 4)Card template order                 | cards.ord                  | The order of the card template.                                                                      |
+| 5)Card modified timestamp             | cards.mod                  | The timestamp of when the card was last modified.                                                    |
+| 6)Card update sequence                | cards.usn                  | The update sequence number of the card (used for syncing).                                           |
+| 7)Card type                           | cards.type                 | The type of the card (0 = new, 1 = learning, 2 = review, 3 = relearning).                            |
+| 8)Card queue type                     | cards.queue                | The queue type of the card (0 = new, 1 = learning, 2 = review, 3 = day learning, 4 = preview,  -1 = suspended, -2 = sibling buried, -3 = manually buried).|
+| 9)Card due date                       | cards.due                  | The due date of the card.                                                                            |
+| A)Card interval days                  | cards.ivl                  | The interval between card reviews in days (or seconds).                                              |
+| B)Card ease factor                    | cards.factor               | The ease factor of the card.                                                                         |
+| C)Card review times                   | cards.reps                 | The number of times the card has been reviewed.                                                      |
+| D)Card lapse times                    | cards.lapses               | The number of times the card has lapsed (answered correctly to incorrectly).                         |
+| E)Card remaining steps                | cards.left                 | The remaining steps for the card in the learning phase.                                              |
+| F)Card original due date              | cards.odue                 | The original due date of the card (used only in filtered decks).                                     |
+| G)Card original deck ID               | cards.odid                 | The original deck ID of the card (used only in filtered decks).                                      |
+| H)Card flags                          | cards.flags                | The flags (red, etc.) associated with the card.                                                      |
+| K)Note GUID                           | notes.guid                 | The globally unique ID of the note.                                                                  |
+| L)Note model ID                       | notes.mid                  | The model ID of the note.                                                                            |
+| M)Note modified timestamp             | notes.mod                  | The timestamp of when the note was last modified.                                                    |
+| N)Note update sequence                | notes.usn                  | The update sequence number of the note (used for syncing).                                           |
+| O)Note tags                           | notes.tags                 | The tags associated with the note.                                                                   |
+| P)Note fields                         | notes.flds                 | The fields of the note.                                                                              |
+| I)Note sort field                     | notes.sfld                 | The sort field of the note (you set to "Sort by this field in the browser").                         |
+| Q)Notetype name                       | notetypes.name             | The name of the note type.                                                                           |
+| R)Notetype modified timestamp         | notetypes.mtime_secs       | The timestamp of when the note type was last modified.                                               |
+| S)Notetype update sequence            | notetypes.usn              | The update sequence number of the note type (used for syncing).                                      |
+| J)Deck name                           | decks.name                 | The name of the deck.                                                                                |
+| T)Deck modified timestamp             | decks.mtime_secs           | The timestamp of when the deck was last modified.                                                    |
+| U)Deck update sequence                | decks.usn                  | The update sequence number of the deck.                                                              |
+| V)Template name                       | templates.name             | The name of the card template.                                                                       |
+| W)Template modified timestamp         | templates.mtime_secs       | The timestamp of when the card template was last modified.                                           |
+| X)Template update sequence            | templates.usn              | The update sequence number of the card template (used for syncing).                                  |
+| Randomize cards                       | random()                   | Randomize the order of cards.                                                                        |
